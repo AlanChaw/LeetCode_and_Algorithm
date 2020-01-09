@@ -1,0 +1,406 @@
+﻿题号,题目,类型,难度,介绍,思路,第一轮完成情况,第二轮完成情况,题目链接
+1,两数之和,哈希表,easy,"给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+","哈希表，O(n), O(n)",√,,https://leetcode-cn.com/problems/two-sum/
+7,整数反转,数学,easy,给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。,"关键在于检查溢出。转换后的数范围依然要在[-2^31, 2^31-1]之间，也就是[INT_MIN, INT_MAX]",√,,https://leetcode-cn.com/problems/reverse-integer
+9,回文数,数学,easy,判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。,注意正负情况，负数不可能是回文数，剩下的一位一位比就行了，直接to_string()也行,√√,,https://leetcode-cn.com/problems/palindrome-number/
+13,罗马数字转整数,字符串,easy,"需要考虑IV,IX等等",创建一个哈希表，直接检索。第二轮要练习使用c++的哈希表配合字符串操作，熟悉stl，而不是只用if else,√,,https://leetcode-cn.com/problems/roman-to-integer/
+14,最长公共前缀,字符串,easy,编写一个函数来查找字符串数组中的最长公共前缀。,"1. 水平扫描法。先找前两个，前两个再跟第三个找LCS，以此类推。O(S),O(1). S为所有字符数量和。
+2. 逐个字符比较，复杂度一样，但是也很慢
+3. 分治法，类似归并排序一样。时间复杂度最坏情况下不变，空间O(mlog(n)),
+4. 二分查找法，用二分法找到最大长度L，时间O(Slog(n)), 空间O(1)",√,,https://leetcode-cn.com/problems/longest-common-prefix/
+20,有效的括号,栈、字符串,easy,给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。,"使用栈读取，当读取到右括号并且栈顶为对应的左括号则弹出，否则压入栈。O(n), O(n)",√√,,https://leetcode-cn.com/problems/valid-parentheses
+21,合并两个有序链表,链表,easy,将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 ,"直接迭代归并，O(n+m), O(1)",√√,,https://leetcode-cn.com/problems/merge-two-sorted-lists
+26,删除排序数组中的重复项,数组、双指针,easy,给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。不适用额外空间,双指针，直接挪就可以了。,√√,,https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+27,移除元素,数组、双指针,easy,给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。（顺序可以改变）,双指针，一个慢的记录不同元素，一个快的在前面排除重复元素,√√,,https://leetcode-cn.com/problems/remove-element/
+38,外观数列,字符串,easy,"报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。
+1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221",正常循环迭代即可，也可用递归，没什么意义的题，核心就是字符串处理,√√,,https://leetcode-cn.com/problems/count-and-say/
+28,实现subStr(),字符串、双指针,easy,判断一个字符串是不是另一个的subString,"1. KMP 算法
+2. Sunday算法（未尝试）",√×,,https://leetcode-cn.com/problems/implement-strstr
+53,最大子序和,分治法、动态规划,easy,给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。,"1.暴力法：O(n^2), O(1) 
+2.动态规划：O(n), O(1) 
+3.分治法没看",√,,https://leetcode-cn.com/problems/maximum-subarray
+66,加一,数组,easy,给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。,关键是判断进位，逢9进一,√√,,https://leetcode-cn.com/problems/plus-one/
+67,二进制求和,数学、字符串,easy,给定两个二进制字符串，返回他们的和（用二进制表示）。,套求和模板，关键在于处理进位的情况，只要单独用一位一直记录进位，然后每一步把a[i]+b[i]+进位算出来即可,√,,https://leetcode-cn.com/problems/add-binary/
+69,x的平方根,数学、二分查找,easy,实现 int sqrt(int x) 函数。小数部分舍去,"1. 二分检索,O(logn), O(1)
+2. 牛顿法, ",√,,https://leetcode-cn.com/problems/sqrtx/
+70,爬楼梯,动态规划,easy,假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？,"动态规划。dp[n] = dp[n-1]+dp[n-2]，O(n), O(n)",√√,,https://leetcode-cn.com/problems/climbing-stairs
+83,删除排序链表中的重复元素,链表,easy,给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。,链表的基本操作，甚至比删除数组中的重复元素要简单,√√,,https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+88,合并两个有序数组,数组、双指针,easy,给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。,"1. 创建新数组直接归并，O(m+n), O(m+n)
+2. 双指针法从前往后，先将nums1中m个存起来，把结果存回nums1，空间优化为O(m)
+3. 双指针法从后往前，不需要使用额外空间",√,,https://leetcode-cn.com/problems/merge-sorted-array
+100,相同的树,树、DFS,easy,给定两个二叉树，编写一个函数来检验它们是否相同。,递归判断即可，当前是否相同，再递归判断左右子树是否相同,√√,,https://leetcode-cn.com/problems/same-tree/
+101,对称二叉树,树、BFS,easy,给定一个二叉树，检查它是否是镜像对称的。,"1. 递归，检测左右子树是否互为镜像。O(n), O(n)
+2. 使用队列做迭代，O(n), O(n)，构建两个队列，以相反的顺序插入节点。",×,,https://leetcode-cn.com/problems/symmetric-tree/
+104,二叉树的最大深度,树、DFS,easy,给定一个二叉树，找出其最大深度。,"1. 递归.DFS, O(n), O(logn)
+2. 使用栈做迭代的DFS，O(n), O(n)",√√,,https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+107,二叉树的层次遍历II,树、广度优先搜索,easy,给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）,简单的BFS即可，或者每层存一个数组，一层一层遍历。,√√,,https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
+108,将有序数组转换为二叉搜索树,树、DFS,easy,将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。,"1. 递归、或迭代
+2. 栈DFS、或队列BFS（第二轮要看一下）",√,,https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+110,平衡二叉树,树、DFS,easy,给定一个二叉树，判断它是否是高度平衡的二叉树。,递归、看左右子树即可,√√,,https://leetcode-cn.com/problems/balanced-binary-tree/
+111,二叉树的最小深度,树、DFS、BFS,easy,"给定一个二叉树，找出其最小深度。
+最小深度是从根节点到最近叶子节点的最短路径上的节点数量。",也是递归、看左右子树，一直往下找,√√,,https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+112,路径总和,树、DFS,easy,给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。,递归，分两种情况考虑：算当前节点和不算当前节点,√√,,https://leetcode-cn.com/problems/path-sum/
+118,杨辉三角,数组,easy,"给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+在杨辉三角中，每个数是它左上方和右上方的数的和。
+","动态规划，O(n^2), O(n^2)",√√,,https://leetcode-cn.com/problems/pascals-triangle/
+121,买卖股票的最佳时机,数组、动态规划,easy,"给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。","动态规划，跟53最大子序和很像。O(n), O(1)",√√,,https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock
+122,买卖股票的最佳时机 II,贪心算法,easy,"给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。",贪心算法，直接逢低买入，逢高卖出即可,√√,,https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+125,验证回文串,字符串、双指针,easy,给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。,双指针，直接一个头一个尾判断即可，注意用transform()函数先转换为小写，遇到空格跳过即可,√√,,https://leetcode-cn.com/problems/valid-palindrome
+136,只出现一次的数字,位运算、哈希表,easy,给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。,"1. 哈希表，O(n), O(n)
+2. 位运算，O(n), O(1)。所有的数直接做异或操作",√,,https://leetcode-cn.com/problems/single-number/
+141,环形链表,,easy,给定一个链表，判断链表中是否有环。,"1. 哈希表, O(n), O(n)
+2. 快慢指针 O(n), O(1)",√√,,https://leetcode-cn.com/problems/linked-list-cycle/
+155,最小栈,栈、设计,easy,设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。,使用变量或辅助栈存储当前的最小值,√√,,https://leetcode-cn.com/problems/min-stack/
+160,相交链表,链表,easy,编写一个程序，找到两个单链表相交的起始节点。,"双指针法，O(n), O(1)
+根据原理 a + all + b = b + all + a
+顺序遍历，当a到结尾时从b头开始遍历，对b同理，如果一轮结束两者还没有共同交点，则无交点。",√,,https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+169,多数元素,位运算、分治法,easy,给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。,"1. 摩尔投票法：直接设置一个buffer和一个count，如果下个数跟前一个一样则count++，否则--，count为0则更换buffer为当前数。O(n), O(1)
+2. 预排序，取中位数。O(nlogn), O(n)
+3. 哈希表，O(n), O(n)
+4. 分治法，求左右两边的众数",√√,,https://leetcode-cn.com/problems/majority-element/
+171,Excel表列序号,数学,easy,给定一个Excel表格中的列名称，返回其相应的列序号。,其实就是相当于26进制转10进制,√√,,https://leetcode-cn.com/problems/excel-sheet-column-number/
+172,阶乘后的0,数学,easy,给定一个整数 n，返回 n! 结果尾数中零的数量。,数论题，第一次没想到。其实是数含5的因数的数量，而且对25，625..等5的幂要多算一次,×,,https://leetcode-cn.com/problems/factorial-trailing-zeroes/
+189,旋转数组,数组,easy,给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。,方法很巧妙，先将数组反转，再将前k个和后n-k个分别反转即可。三次反转操作。时间O(n)，空间O(1),×,,https://leetcode-cn.com/problems/rotate-array
+190,颠倒二进制位,位运算,easy,颠倒给定的 32 位无符号整数的二进制位。,建一个mask用与运算一位一位的取，把它放到该放的位置即可,√√,,https://leetcode-cn.com/problems/reverse-bits/
+191,位1的个数,位运算,easy,编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。,建一个mask用与运算一位一位取就行了,×,,https://leetcode-cn.com/problems/number-of-1-bits/
+198,打家劫舍,动态规划,easy,"你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。","动态规划，currentMax = max(num + prepreMax, preMax); 即每一步都分为抢当前的和不抢当前的两种情况。O(n), O(1)",√√,,https://leetcode-cn.com/problems/house-robber/
+202,快乐数,哈希表、数学,easy,一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。,"核心在于如何找到循环。
+1. 用一个set存储见过的平方和，发生重复时结束。空间占用大。
+2. “快慢指针”思想。空间复杂度O(1)",√,,https://leetcode-cn.com/problems/happy-number
+203,移除链表元素,链表,easy,删除链表中等于给定值 val 的所有节点。,比数组中删除给定数的简单，毕竟链表的增删只需要O(1)，而且操作简单,√√,,https://leetcode-cn.com/problems/remove-linked-list-elements/
+204,计数质数,哈希表、数学,easy,统计所有小于非负整数 n 的质数的数量。,"1. 暴力法。但只考虑奇数。
+2. 厄拉多塞筛法",√,,https://leetcode-cn.com/problems/count-primes
+206,反转链表,链表,easy,反转一个单链表。,"1.迭代：转化成vector再转化回链表  
+2.也可以递归",√√,,https://leetcode-cn.com/problems/reverse-linked-list
+217,存在重复元素,数组、哈希表,easy,"给定一个整数数组，判断是否存在重复元素。
+如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。",哈希表存就行，送分题,√√,,https://leetcode-cn.com/problems/contains-duplicate/
+225,用队列实现栈,栈、设计,easy,使用队列实现栈的操作,"1. push()时正常push
+2. 但是取top()和pop()时，要用一个临时队列存一下，把当前队列的值都掏出来，直到取到队尾的值",√√,,https://leetcode-cn.com/problems/implement-stack-using-queues/
+226,翻转二叉树,树,easy,翻转一颗二叉树,交换左右子节点指针，递归翻转左右子树即可,√√,,https://leetcode-cn.com/problems/invert-binary-tree/
+231,2的幂,位运算、数学,easy,给定一个整数，编写一个函数来判断它是否是 2 的幂次方。,标准的用位掩码做检测的题,√√,,https://leetcode-cn.com/problems/power-of-two
+232,用栈实现队列,栈、设计,easy,跟225题正好相反,操作跟225题正好相反，也是push时正常push，但是Pop和获取top元素时，要用一个临时栈存一下，把原栈里的元素都掏出来,√√,,https://leetcode-cn.com/problems/implement-queue-using-stacks/
+234,回文链表,链表、双指针,easy,请判断一个链表是否为回文链表。,"1. 转成vector暴力匹配，O(n), O(n)
+2. 快慢指针，反转前半部分链表。O(n), O(1)",√,,https://leetcode-cn.com/problems/palindrome-linked-list/
+235,二叉检索树的最近公共祖先,树,easy,"给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。",递归，比较当前两个值跟当前根节点的值，在同一侧的话，则从根节点往左或右侧找，在两侧的话则当前点即为要找的最近公共祖先,√√,,https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree
+237,删除链表中的节点,链表,easy,删除链表中的一个非尾节点的节点，但只给了该节点，而没有头指针。,脑筋急转弯，把下一个node的值复制到当前node，将下一个node删除即可,√√,,https://leetcode-cn.com/problems/delete-node-in-a-linked-list
+242,有效字母的异位词,排序、哈希表,easy,给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词(anagram)。,"1. 哈希表，空间换时间,O(n), O(n)
+2. 预排序，O(nlogn)，O(1)",√√,,https://leetcode-cn.com/problems/valid-anagram/
+243,最短单词距离,数组,easy,给定一个单词列表和两个单词 word1 和 word2，返回列表中这两个单词之间的最短距离。,一次遍历即可，每次发现一个word1或者word2，就更新一下位置，算一下距离，最后返回最近的距离即可,√√,,https://leetcode-cn.com/problems/shortest-word-distance/
+246,中心对称数,哈希表、数学,easy,中心对称数是指一个数字在旋转了 180 度之后看起来依旧相同的数字（或者上下颠倒地看）。,"这个题有个巧的地方是可以用哈希表存一个原数到对称后的数的表，例如6->9, 9->6 等等，先将数翻转，看跟原数是否相等即可",√√,,https://leetcode-cn.com/problems/strobogrammatic-number/
+252,会议室,排序,easy,给定一个会议时间安排的数组，每个会议时间都会包括开始和结束的时间，判断一个人是否能参加全部会议,自定义排序函数，对所有区间进行排序，再看有没有重叠部分即可,√√ ,,https://leetcode-cn.com/problems/meeting-rooms/
+258,各位相加,数学,easy,给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。 (能否O(1)时间解决？),观察后发现，如果这个数末尾是9，则答案是9，否则是num % 9,×,,https://leetcode-cn.com/problems/add-digits/
+263,丑数,数学,easy,"判断给定的数是否是丑数
+丑数是只包含质因数2,3,5的正整数",不用去分解质因数，直接让当前数不断地去除2，3，5，看剩的是不是1 即可,×,,https://leetcode-cn.com/problems/ugly-number/
+268,缺失数字,位运算、数组、数学,easy,"给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。",算出理论的和（根据size），再算出实际和，求差就行了。,√×,,https://leetcode-cn.com/problems/missing-number/
+271,存在重复元素,数组、哈希表,easy,给定一个整数数组，判断是否存在重复元素。,"直接建哈希表，空间换时间。时间O(n), 空间O(n)",√√,,https://leetcode-cn.com/problems/contains-duplicate/
+283,移动零,数组、双指针,easy,给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。,跟前边题号26一样。把后边的数都压缩到前边，最后的空位拿0填上就行了,√√,,https://leetcode-cn.com/problems/move-zeroes/
+292,Nim游戏,脑筋急转弯,easy,你和你的朋友，两个人一起玩 Nim 游戏：桌子上有一堆石头，每次你们轮流拿掉 1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手.  假设你每一步去拿最优解，判断在给定石头数量下能否赢得游戏,如果是4的整数倍，赢不了。否则能赢,√,,https://leetcode-cn.com/problems/nim-game/
+326,3的幂,数学,easy,给定一个整数，写一个函数来判断它是否是 3 的幂次方。,"return n > 0 && 1162261467%n == 0;
+那个数是int范围里最大的3的幂，只要某数能被其整除则一定是3的幂（等价条件）",×,,https://leetcode-cn.com/problems/power-of-three/
+344,反转字符串,字符串,easy,"编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
+不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。",直接镜像互换就行了，算出目标位置，对应位置直接调换。,√√,,https://leetcode-cn.com/problems/reverse-string/
+346,数据流中的移动平均值,设计、队列,easy,给定一个整数数据流和一个窗口大小，根据该滑动窗口的大小，计算其所有整数的移动平均值。,用队列存数据，实时更新里边的平均值即可，存里边的数的和，这样时间复杂度只要O(1),√√,,https://leetcode-cn.com/problems/moving-average-from-data-stream/
+350,两个数组的交集 II,排序、哈希表、双指针、二分查找,easy,给定两个数组，编写一个函数来计算它们的交集。,"1. 预排序
+2. 哈希表，空间换时间",√√,,https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+371,两整数之和,位运算,easy,不使用运算符 + 和 - ​​​​​​​，计算两整数 ​​​​​​​a 、b ​​​​​​​之和。,先算出不进位的结果，再算出进位的结果,×,,https://leetcode-cn.com/problems/sum-of-two-integers/
+387,字符串中的第一个唯一字符,字符串、哈希表,easy,给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。,"直接拿哈希表做就行了，时间O(n), 空间O(n)",√√,,https://leetcode-cn.com/problems/first-unique-character-in-a-string
+392,判断子序列,贪心、动态规划、二分查找,easy,给定字符串 s 和 t ，判断 s 是否为 t 的子序列。,直接贪心找，别搞花里胡哨的,√√,,https://leetcode-cn.com/problems/is-subsequence/
+412,FizzBuzz,,easy,"写一个程序，输出从 1 到 n 数字的字符串表示。
+1. 如果 n 是3的倍数，输出“Fizz”；
+2. 如果 n 是5的倍数，输出“Buzz”；
+3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。",遍历三次，第一次在3的倍数上写Fizz，第二次在5的倍数上写Buzz，最后一次在什么都没有的字符串上写原数字,√√,,https://leetcode-cn.com/problems/fizz-buzz/
+415,字符串相加,字符串,easy,给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。,跟67题 二进制求和，用同样的模板就行。每次记录住当前的进位位，把num1[i] + num2[i] + jinwei算出即可,√,,https://leetcode-cn.com/problems/add-strings/
+437,路径总和III,树,easy,"找出二叉树找出路径和等于给定数值的路径总数。
+路径不需要从根节点开始，也不需要在叶子节点结束",dfs深搜。分两种情况，包括当前节点或不包括,√,,https://leetcode-cn.com/problems/path-sum-iii/
+448,找到数组中所有消失的数字,数组,easy,"给定一个范围在  1 ≤ a[i] ≤ n ( n = 数组大小 ) 的 整型数组，数组中的元素一些出现了两次，另一些只出现一次。
+找到所有在 [1, n] 范围之间没有出现在数组中的数字。
+要求：不使用额外空间且时间复杂度为O(N)",原地标记法，每当看到一个数，把对应位置的数给转成负数，已经为负的不再转，最后看哪些位置的数依然是正的即可。 关键是利用题中条件，数的范围给了，所以可以在下标上做文章,×,,https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/
+461,汉明距离,位运算,easy,两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。给出两个整数 x 和 y，计算它们之间的汉明距离。,求出两个数异或值，用位掩码找1的数量即可,√,,https://leetcode-cn.com/problems/hamming-distance/
+557,反转字符串中的单词III,字符串,easy,给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。,没有任何难度，只是字符串处理而已,√√,,https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
+581,最短无序连续子数组,数组,easy,给定一个整数数组，你需要寻找一个连续的子数组，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。,先将数组排序，再去比较即可，从左右两侧逼近，确定左右边界,√√,,https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/
+617,合并二叉树,树,easy,"给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。",跟检测两个二叉树是不是相等的那个题一样，直接无脑递归,√√,,https://leetcode-cn.com/problems/merge-two-binary-trees/
+687,最长同值路径,树、递归,easy,给定一个二叉树，找到最长的路径，这个路径中的每个节点具有相同值。 这条路径可以经过也可以不经过根节点。,这道题绝壁不是一道easy的题，跟那道hard的题124题，一样。在递归期间，要算出当前的最大值，同时返回给上一层的只能是包括一半的最大值max（根+左，根+右），而不能是以当前节点为根节点的最大值,√,,https://leetcode-cn.com/problems/longest-univalue-path/
+728,自除数,数学,easy,"自除数 是指可以被它包含的每一位数除尽的数。
+给定上边界和下边界数字，输出一个列表，列表的元素是边界（含边界）内所有的自除数。",暴搜 ， 无语,√√,,https://leetcode-cn.com/problems/self-dividing-numbers
+933,最近的请求次数,队列,easy,"写一个 RecentCounter 类来计算最近的请求。
+后边一堆乱七八糟的",没有任何难度，队列就完事了 ,√√,,https://leetcode-cn.com/problems/number-of-recent-calls/
+997,找到小镇的法官,图 ,easy,给一个邻接表，找到一个点，它不指向任何其他的点，但所有其它的点都指向他,找到那个出度为0，入度为n-1的点即可,√√,,https://leetcode-cn.com/progress/
+1042,不邻接植花,图 ,easy,其实就是精确覆盖问题（上色）,这个题毕竟只是easy，暴搜就行,√√,,https://leetcode-cn.com/problems/flower-planting-with-no-adjacent/
+,, ,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+2,两数相加,链表、数学,medium,给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。,关键在于处理逢9会进位的情况,√√,,https://leetcode-cn.com/problems/add-two-numbers/
+3,无重复字符的最长子串,哈希表、双指针,medium,给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。,"1. 暴力法，纯暴力法O(n^3)必超时，如果用哈希表判断是否存在也要O(n^2)。
+2. 滑动窗口",√,,https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+5,最长回文子串,字符串、动态规划,medium,给定一个字符串 s，找到 s 中最长的回文子串,"1. 中心扩展算法。每次从一个字符向左右两边扩张（分奇偶情况），发现左右不相等就停，以获得最长结果，比DP要好。O(n^2), O(1)
+2. 动态规划。先找到所有的一字母回文和二字母回文，再找三字母。。以此类推。O(n^2). O(1).",√√,,https://leetcode-cn.com/problems/longest-palindromic-substring/
+8,字符串转整数,数学、字符串,medium,请你来实现一个 atoi 函数，使其能将字符串转换成整数。,难点在于处理空格、非字符符号、负号等情况。看着简单写起来麻烦，浪费时间,√√,,https://leetcode-cn.com/problems/string-to-integer-atoi/
+11,盛水最多的容器,双指针,medium,"给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。","1. 暴力法。可以AC，时间很长。
+2. 双指针法。其实就是一种贪心方法，从两侧出发，每次将较短的板向内移动一格。因为向内移动长板必然不会使容积增大，但移动短板可能会使容积增大。",√,,https://leetcode-cn.com/problems/container-with-most-water/
+15,三数之和,数组、双指针,medium,"给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
+答案中不可以包含重复的三元组。",预排序。之后按顺序每次选一个数，然后再从剩余数里用双指针法选后两个数。本题关键在于如何去重。,×,,https://leetcode-cn.com/problems/3sum/
+16,最接近的三数之和,数组、双指针,medium,"给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。
+返回这三个数的和。存在唯一答案。",其实跟上边15题一样，先预排序，然后按顺序每次选一个数，再从剩下的数里用双指针去选后两个，当和比target大了就让大的往左移，和比target小了就让小的往右移。,√,,https://leetcode-cn.com/problems/3sum-closest/
+17,电话号码的字母组合,字符串、回溯算法,medium,给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。(参照九宫格键盘）,就是标准的回溯算法、套模板即可,√√,,https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+18,四数之和,数组、哈希表、双指针,medium,给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。,"跟三数之和类似，外层两层嵌套循环，固定住前两个数，然后双指针从后边找后两个数，并且要保证解不能重复即可。
+要注意的是如何避免重复，这里很容易出错。每当某个数用过了，要记得跳过当前数",√,,https://leetcode-cn.com/problems/4sum/
+19,删除链表的倒数第N个节点,双指针,medium,"给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+进阶：只使用一趟扫描实现","一趟扫描，双指针，设置dummyhead, 一个指针先走n步，另一个后出发，当第一个指针到了null时，慢指针的next即为要删除的节点。(其实在n之前的每个节点依然被访问了两次，跟两趟遍历差不多，复杂度完全相同，感觉没什么意义）",√,,https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
+22,括号生成,字符串、回溯算法,medium,给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。,直接回溯算法，剪枝的判断条件为：如果右括号数量大于左括号则剪掉,√√,,https://leetcode-cn.com/problems/generate-parentheses/
+24,两两交换链表中的节点,链表,medium,"给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+例如： 1->2->3->4， 要返回2->1->4->3
+要求进行实际的节点交换，而不能只交换值。",dummyHead大法，其实就是考察操作链表的基本功。,√√,,https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+33,搜索旋转排序数组,二分查找,medium,"假设按照升序排序的数组在预先未知的某个点上进行了旋转。( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
+搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。","1. 二分查找直接搜索目标值，其实就是注意划分条件，确定好应该往左找还是往右找。
+2. 二分查找寻找旋转轴，然后判断应该在哪个区域做二分查找，思路简单但实现比较麻烦",√√,,https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+34,排序数组中查找某元素的第一个和最后一位置,二分查找,medium,,二分查找的经典题型。分别找到左边界和右边界。这个题很值得多练习,×,,https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+36,有效的数独,哈希表,medium,检查数独是否有冲突,维护三个哈希表的List，9个行表，9个列表，9个块表，遍历一遍整个矩阵，分别做冲突检查，再检查主从对角线。时间复杂度O(n^2),√,,https://leetcode-cn.com/problems/valid-sudoku/
+46,全排列,回溯算法,medium,"给定一个没有重复数字的序列，返回其所有可能的全排列。
+",回溯算法,×,,https://leetcode-cn.com/problems/permutations/
+48,旋转图像,数组,medium,"给定一个 n × n 的二维矩阵表示一个图像。
+将图像顺时针旋转 90 度。 必须使用原地算法",一个很巧妙的办法是，先将矩阵转置，再reverse每一行即可。时间复杂度O(n^2),√,,https://leetcode-cn.com/problems/rotate-image/
+49,字母异位词分组,哈希表,medium,给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。,送分题。直接对每个字符串按字典序排序然后放到哈希表里即可,√√,,https://leetcode-cn.com/problems/group-anagrams/
+50,"Pow(x, n)",二分查找,medium,"实现pow(x, n)",快速幂算法。根据x^n = x^(n/2) * x^(n/2)，递归也可。,×,,https://leetcode-cn.com/problems/powx-n/
+54,螺旋矩阵,数组,medium,"给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。",按层向内循环即可。还有一种较好的解法是按顺序遍历每条边，以“上、右、下、左’的顺序，每次遍历完一条边，就把这条边向内缩一次。对逆时针也很好解决。,√√,,https://leetcode-cn.com/problems/spiral-matrix/
+55,跳跃游戏,贪心算法、数组,medium,"给定一个非负整数数组，你最初位于数组的第一个位置。
+数组中的每个元素代表你在该位置可以跳跃的最大长度。
+判断你是否能够到达最后一个位置。",就是简单的贪心算法，当遇到0的时候，看0前边的数够不够跳过这些0就行了,√√,,https://leetcode-cn.com/problems/jump-game/
+56,合并区间,排序、数组,medium,"给出一个区间的集合，请合并所有重叠的区间。
+输入: [[1,4],[4,5]]
+输出: [[1,5]]
+解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。",没什么说的，直接按区间的第一个数排序，再逐个把能合并的合并就行了。,√√,,https://leetcode-cn.com/problems/merge-intervals/
+59,螺旋矩阵II,数组,medium,给定一个正整数 n，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。,跟前边的54其实一样，怎么都要n^2的时空复杂度，按边一条一条顺时针生成就行了。其实把54题的代码少做改动即可。,√√,,https://leetcode-cn.com/problems/spiral-matrix-ii/
+61,旋转链表,链表、双指针,medium,给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。,直接将链表首尾相连，然后从head开始往后走k % length 步，再将环断开即可。依然是链表的基本操作，考察熟练性而已。,√√,,https://leetcode-cn.com/problems/rotate-list/
+62,不同路径,动态规划,medium,"一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。",从左上到右下做动态规划即可，dpMatrix中储存的数字为从起点到该点一共有多少种走法。,√√,,https://leetcode-cn.com/problems/unique-paths/
+63,不同路径II,动态规划,medium,在上一题基础上增加了障碍物,其实跟上一题几乎没有区别，碰到障碍物不算即可。,√√,,https://leetcode-cn.com/problems/unique-paths-ii/
+64,最小路径和,动态规划,medium,给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。,非常直白的动态规划题，每步从上边和右边找能使当前更小的就行了。,√√,,https://leetcode-cn.com/problems/minimum-path-sum/
+73,矩阵置零,数组,medium,给定一个 m x n 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用原地算法。,"1. 可以将即将需要被设置为0的点一个特殊标记（极大或极小的数）但是  对c++很不友好。
+2. 将需要设置为0的行或列的行首或者列首置0以作为标记。",√,,https://leetcode-cn.com/problems/set-matrix-zeroes/
+75,颜色分类,排序、数组、双指针,medium,"给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+能否想出只用常数空间的一趟扫描法？",直接哈希表存一下不就行？？？,√,,https://leetcode-cn.com/problems/sort-colors/
+78,子集,位运算、数组、回溯,medium,给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。,套模板直接回溯就行了。,√√,,https://leetcode-cn.com/problems/subsets/
+79,单词搜索,数组、回溯算法,medium,给定一个二维网格和一个单词，找出该单词是否存在于网格中。,直接套回溯算法模板,√√,,https://leetcode-cn.com/problems/word-search/
+82,删除排序链表中的重复元素II,链表,medium,给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。,dummyHead大法。先哈希表存下来所有重复出现过的数字，再遍历一遍链表，将有重复的跳过即可。  ,√√,,https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
+86,分隔链表,链表、双指针,medium,"给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
+要求保留两个分区中每个节点的初始相对位置。","其实就是快速排序中的partition操作。
+但是这道题一种简单的实现方式是先找到左半部分，再找到右半部分，最后拼接到一起",√,,https://leetcode-cn.com/problems/partition-list/
+89,格雷编码,回溯算法,medium,"格雷编码是一个二进制数字系统，在该系统中，两个连续的数值仅有一个位数的差异。
+给定一个代表编码总位数的非负整数 n，打印其格雷编码序列。格雷编码序列必须以 0 开头。",根据规律为：每次将现有的所有数末尾加一个0， 再从后往前遍历现有的数，每个数加1，存到现有数组中，以此类推,×,,https://leetcode-cn.com/problems/gray-code/
+91,解码方法,动态规划,medium,"题干略
+输入: ""226""
+输出: 3
+解释: 它可以解码为 ""BZ"" (2 26), ""VF"" (22 6), 或者 ""BBF"" (2 2 6) 。","动态规划。比较容易，公式为dp[i] = dp[i-1]+dp[i-2]，如果s(i)和s(i-1,i)均为合法数字的情况下。需要注意的是当字符串以0开头或中间的某个0前的数大于2，则无法解码。",√√,,https://leetcode-cn.com/problems/decode-ways/
+94,二叉树的中序遍历,树、栈,medium,给定一个二叉树，返回它的中序 遍历。,"1. 递归，很简单，先左后中最后右。类似回溯算法
+2. 迭代。用栈辅助，每次一直将左节点压入栈中，遍历完当前节点再去遍历右子节点，继续将右子节点的左节点不断压栈",√,,https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+96,不同的二叉搜索树,树、动态规划,medium,给定一个整数 n，求以 1 ... n 为节点组成的二叉搜索树有多少种？,"long C = 1;
+for(int I = 0; I < n; i++){
+    C = C * 2 * (2 * I + 1) / (I + 2);
+}
+其实本质上是一道数学问题，叫做”卡塔兰数“，感觉没什么价值",×,,https://leetcode-cn.com/problems/unique-binary-search-trees/
+98,验证二叉搜索树,树、DFS,medium,给定一个二叉树，判断其是否是一个有效的二叉搜索树。,这里不能想当然的认为对每个节点单独判断，root.val > root.left.val && root.val < root.right.val就行了，因为右子树也可能有小于root的数，所以在递归的时候，要跟踪记录该节点应该满足的上界和下界。左子树的上界为root.val，右子树的下界为root.val，任何越界的值都不行,×,,https://leetcode-cn.com/problems/validate-binary-search-tree/
+102,二叉树的层次遍历,树、广度优先搜索,medium,给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点）。,"1. 按层遍历，直接用数组存每一层的节点
+2. 用队列实现一个BFS，同时要存每个节点的深度",√√,,https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+103,二叉树的锯齿形层次遍历,栈、树、广度优先搜索,medium,给定一个二叉树，返回其节点值的锯齿形层次遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。,正常按层次遍历，然后输出时一行正一行反就行了,√√,,https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
+105,从前序和中序遍历中构造二叉树,树、深度优先搜索、数组,medium,如题，树中没有重复元素。,递归实现，有点像分治法、从前序遍历拿到根节点，从中序遍历拿到左子树和右子树，一点一点向下递归即可,√√,,https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+109,将有序链表转换为二叉搜索树,深度优先搜索、链表,medium,给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。,"注意这里要求了高度要平衡，因此不能直接返回链表头结点（因为链表本身其实相当于一个有偏的BFS了）
+相当于给定了中序遍历的结果，求原BFS。其实用之前的快慢指针法，每次找到中间的节点作为根节点，再递归遍历左右半部分即可。",√√,,https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/
+113,路径总和II,树、深度优先搜索、数组,medium,给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。,"这个题中的”路径“定义为从根到叶子节点的路径，而不是之前的那种从任意节点开始从任意节点结束的路径。
+直接向下做回溯算法即可，随时剪枝",√√,,https://leetcode-cn.com/problems/path-sum-ii/
+114,二叉树展开为链表,树、DFS,medium,给定一个二叉树，原地将它展开为链表。,将右子节点暂存，左子节点拿到右子节点处，递归展开当前的右子节点（原先的左子节点），然后将递归展开后的temp节点（原先的右子节点）接到当前右边的尾巴处，这个尾巴每次都需要从根节点递归向下查找.,√√,,https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
+116,填充每个节点的下一个右侧节点指针,DFS,medium,"给定一个完美二叉树，其所有叶子节点都在同一层，每个父节点都有两个子节点。
+填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
+","直接递归做了。
+对每个节点，连接其左右两个子节点，并连接左子节点的左右子节点，左子节点的右子节点和右子节点的左子节点，右子节点的左右子节点。即可。",√√,,https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
+127,单词接龙,BFS,medium,"给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则：
+每次转换只能改变一个字母。
+转换过程中的中间单词必须是字典中的单词。",先存下来哪些词能被转换为哪些词，用作查询字典。然后直接BFS在字典上搜就行了。,√√,,https://leetcode-cn.com/problems/word-ladder/
+129,求根到叶子节点数字之和,树、深度优先搜索,medium,"给定一个二叉树，它的每个结点都存放一个 0-9 的数字，每条从根到叶子节点的路径都代表一个数字。 例如：路径 1->2->3 表示数字123
+计算从根节点到叶子节点生成的所有数字之和。",还是回溯，搞一个Long long ans，每次遍历到叶子节点，把值拼上，加到全局ans里即可。如果太长的话可以考虑用字符串加法，字符串加法直接套模板即可。,√√,,https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
+130,被围绕的区域,BFS、DFS、并查集,medium,"给定一个二维的矩阵，包含 'X' 和 'O'（字母 O）。
+找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
+被围绕的区间不会存在于边界上",直接用BFS、以所有边界上的O为起点进行BFS，将不需要转换为X的O打上标记，这样其他剩下的O就是跟边界无任何连通的，将剩下的O置为X,√,,https://leetcode-cn.com/problems/surrounded-regions/
+131,分割回文串,回溯算法,medium,给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。要求返回所有的分割方案。,回溯算法。,√√,,https://leetcode-cn.com/problems/palindrome-partitioning/
+133,克隆图,图、DFS、BFS,medium,给定无向连通图中一个节点的引用，返回该图的深拷贝（克隆）。图中的每个节点都包含它的值 val（Int） 和其邻居的列表（list[Node]）。,BFS遍历，先得到整张图的信息（邻接表），再复原出原图的深拷贝。,√,,https://leetcode-cn.com/problems/clone-graph/
+134,加油站,贪心算法、数组,medium,给定每一步的收益和开销，判断能否从某一个点出发，走完整一圈。,"1. 暴力算， O(n^2)
+2. 一次遍历。从编号0开始，所有站里的油总量>=车子总油耗。如果刚好在k+1站没油，将起点设置为k+1",√,,https://leetcode-cn.com/problems/gas-station/
+137,只出现一次的数字II,位运算,medium,给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。,整体思路在算法笔记中有记录。核心思想在于创建一种三进制，满3变0，剩下的那个就是只出现一次的元素。,×,,https://leetcode-cn.com/problems/single-number-ii/
+138,复制带随机指针的链表,哈希表、链表,medium,"给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
+要求返回这个链表的深拷贝。 ",两个哈希表、一个是反向的， 存每个节点被哪些节点所指（存下标）。另一个存复制后的每个节点应该指向第几个节点。,√√,,https://leetcode-cn.com/problems/copy-list-with-random-pointer/
+139,单词拆分,动态规划,medium,给定一个非空字符串 s 和一个包含非空单词列表的字典 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。,维护一个dp数组来存储到当前字符为止，能否是一个可拆分的单词，对于每个新来的字母，向前搜索所有dp为true的字符作为断点，看截止到当前字母能否返回一个可拆分的词。时间复杂度O(n^2),√√,,https://leetcode-cn.com/problems/word-break/
+142,环形链表II,双指针,medium,这次是要找到入环的点，但是不能用额外内存（即不能用哈希表存节点的指针）,做法是在找到环时（快慢指针相遇），固定相遇的点，让一个节点从头节点开始走，两个一人走一步，相遇的点即为入环点.,√,,https://leetcode-cn.com/problems/linked-list-cycle-ii/
+144,二叉树的前序遍历,树、DFS,medium,rt,正常按迭代版先序遍历模板走就行。递归的话傻子都能写。,√√,,https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+146,LRU缓存机制,设计,medium,运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。,核心在于使用哈希链表。以达成查找O(1) （哈希表的特性），增删也能O(1) （链表的特性）,×,,https://leetcode-cn.com/problems/lru-cache/
+148,排序链表,排序、链表,medium,在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。,自底向上的归并排序，难点在于需要对链表反复断链和拼接。关键在于cut() 和 merge() 两个操作,√,,https://leetcode-cn.com/problems/sort-list/
+150,逆波兰表达式,栈,medium,rt,栈的经典用法。,√√,,https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+152,乘积最大子序列,数组、动态规划,medium,给定一个整数数组 nums ，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。,要注意一个负负得正的问题，这里需要存两个dp数组，一个存 当前的最小乘积，一个存当前最大乘积，不断更新到最后即可,√,,https://leetcode-cn.com/problems/maximum-product-subarray/
+159,至多包含两个不同字符的最长字串,哈希表、双指针、字符串、滑动窗口,medium,给定一个字符串 s ，找出 至多 包含两个不同字符的最长子串 t 。,在滑动窗口辅助下搞一个哈希表，或者set。滑动窗口具体可以用双指针实现，一个在前面正常遍历字符串，另一个在当前窗口中字符数量超过2时持续跟进，直到符合要求为止。虽然是双重循环，但时间复杂度仍是O(n)，因为每个元素最多被拿进窗口一次，被拿出窗口一次。,√√,,https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/
+162,寻找峰值,二分查找,medium,返回数组的任意一个峰值。,二分查找。如果当前数处于上升状态，则往右边找，如果处于下降状态，则往左边找，注意处理头尾的特殊情况即可。,√√,,https://leetcode-cn.com/problems/find-peak-element/
+173,二叉搜索树迭代器,栈、树、设计,medium,rt,"1. 一种方法是耍赖法直接将给定的BST遍历一遍，然后存到数组中。但是空间开销很大，实际上是违反了迭代器的设计原则的
+2. 先写出迭代版中序遍历，再稍微拆分、修改一下即可实现迭代器版本。其实就是将正常迭代版中序遍历所用的栈作为一个全局变量。",√√,,https://leetcode-cn.com/problems/binary-search-tree-iterator/
+179,最大数,排序,medium,给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。结果用字符串表示。,自定义比较函数来进行排序，当ab>ba时a应该放在b之前，反之a放在b之后,√√,,https://leetcode-cn.com/problems/largest-number/
+199,二叉树的右视图,树、DFS、BFS,medium,给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。,其实就是层次遍历（或BFS），每次存正向遍历的结果，反向输出就行了。,√√,,https://leetcode-cn.com/problems/binary-tree-right-side-view/
+200,岛屿数量,BFS、DFS、并查集,medium,给定一个由 '1'（陆地）和 '0'（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。,"1. BFS
+2. DFS
+3. 并查集",√,,https://leetcode-cn.com/problems/number-of-islands/
+201,按数字范围与,位运算,medium,"给定范围 [m, n]，其中 0 <= m <= n <= 2147483647，返回此范围内所有数字的按位与（包含 m, n 两端点）。","暴力法必超时，毕竟题中已经给了范围很大。
+想象一下，数字范围的按位与，其实只要从m开始的所有数中，只要有一个数的某一位是0，那么结果中这一位必是0.
+所以n比m多出来那部分肯定必是0，其实只要找到m和n的公共前缀即可。",×,,https://leetcode-cn.com/problems/bitwise-and-of-numbers-range/
+207,课程表,拓扑排序,medium,给定课程总量以及它们的先决条件，判断是否可能完成所有课程的学习？,经典的拓扑排序问题。可以先根据adjList生成adjMatrix，再进行拓扑排序即可。,√,,https://leetcode-cn.com/problems/course-schedule/
+208,实现Trie 前缀树,设计、字典树,medium,"实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。","树中的每个节点，TrieNode，都要维护一个字典，<char, TrieNode*>， 来存储所有的子节点",√√ ,,https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+210,课程表II,拓扑排序,medium,207题为判断题，看能否返回一个拓扑排序。这道题要求返回一个合理的拓扑排序结果，稍加修改即可。,,√√,,https://leetcode-cn.com/problems/course-schedule-ii/
+211,添加与搜索单词-数据结构设计,设计、字典树、回溯,medium,设计一个支持 addWord(word)，和search(word)的数据结构。,直接使用Trie就行了，具体到每个节点，不要用哈希表存子节点，如果已知都是小写字母，直接用一个26定长数组存就行了。,√√,,https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+213,打家劫舍II,动态规划,medium,这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。 求在不触动报警装置的情况下，能够偷窃到的最高金额。,其实就是在打家劫舍普通版的基础上加了个成环的条件，只要将问题转化为分别求普通版0到n-1，以及1到n的最大值，再对这两个取最大值即可,√,,https://leetcode-cn.com/problems/house-robber-ii/
+215,数组中第k个最大元素,堆、分治法,medium,在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。,"1. 暴力法。O(nlogn)，O(1)
+2. 使用最小堆，每当堆大小大于k，推出当前最小元素，O(nlogk)，空间O(1)
+3. 快速选择算法（类似快排），时间平均O(n),空间O(1)",√,,https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
+220,存在重复元素III,排序、orderedMap,medium,给定一个整数数组，判断数组中是否有两个不同的索引 i 和 j，使得 nums [i] 和 nums [j] 的差的绝对值最大为 t，并且 i 和 j 之间的差的绝对值最大为 ķ。,暴力法超时。预排序可以过,√,,https://leetcode-cn.com/problems/contains-duplicate-iii/
+227,基本计算器II,字符串,medium,实现一个基本的计算器来计算一个简单的字符串表达式的值。,"使用栈、一个存符号，一个存数字
+中缀转后缀：
+- 数字直接输出到后缀表达式
+- 栈为空时，遇到运算符，直接入栈
+- 遇到运算符，弹出所有优先级大于或等于该运算符的栈顶元素，并将该运算符入栈
+- 合并两个栈，即生成了后缀表达式",√,,https://leetcode-cn.com/problems/basic-calculator-ii/
+230,二叉搜索树中第k小的元素,树、二分查找,medium,给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。,中序遍历，中序遍历的输出顺序刚好就是有小到大的,×,,https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/
+236,二叉树的最近公共祖先,树,medium,"给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。",递归遍历，使用字典存储每个节点的父指针，并用一个字典存储每个节点的深度。然后双指针从两个节点向上搜即可,√√,,https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+238,除自身以外数组的乘积,数组,medium,要求不能使用除法，时间O(n)，空间O(1)，输出数组不视为额外空间,两次遍历，先算每个数左侧的累积，再反向遍历一次算出每个数右侧的累积。,×,,https://leetcode-cn.com/problems/product-of-array-except-self/
+240,搜索二维矩阵,二分查找、分治法,medium,"编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
+每行的元素从左到右升序排列。
+每列的元素从上到下升序排列。","1. 暴力法 O(mn)。忽略了有序信息
+2. 二分查找。O(nlgn)，分四块，递归搜索
+3. 从角落开始迭代，一步一步挪动，非常巧妙的方法。O(m+n)
+选左上角，往右走和往下走都增大，不能选
+选右下角，往上走和往左走都减小，不能选
+选左下角，往右走增大，往上走减小，可选
+选右上角，往下走增大，往左走减小，可选",√ ,,https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
+241,为运算表达式设计优先级,分治法,medium,"给定一个含有数字和运算符的字符串，为表达式添加括号，改变其运算优先级以求出不同的结果。你需要给出所有可能的组合的结果。有效的运算符号包含 +, - 以及 * ",在能添加符号的地方尝试添加符号，然后递归左右两个子表达式。（这题是看了思路才写出来的，最好再联系一遍）,√,,https://leetcode-cn.com/problems/different-ways-to-add-parentheses/
+244,最短单词距离II,设计、哈希表,medium,请设计一个类，使该类的构造函数能够接收一个单词列表。然后再实现一个方法，该方法能够分别接收两个单词 word1 和 word2，并返回列表中这两个单词之间的最短距离。您的方法将被以不同的参数调用 多次。,"哈希表，<word, vector<index>>， 然后遍历找就行了，也没什么别的办法",√√,,https://leetcode-cn.com/problems/shortest-word-distance-ii/
+247,中心对称数II,递归、数学,medium,"中心对称数是指一个数字在旋转了 180 度之后看起来依旧相同的数字（或者上下颠倒地看）。
+找到所有长度为n的中心对称数",分为奇偶两种情况讨论，而且还要考虑有些数不能放中间，如6或9，而且0不能放在头和尾。,√√,,https://leetcode-cn.com/problems/strobogrammatic-number-ii/
+251,展开二维向量,设计,medium,请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持 next 和 hasNext 两种操作。、,题目341中，题解的人都是直接存，到这里又开始搞正经的迭代器了，扯淡。,√√,,https://leetcode-cn.com/problems/flatten-2d-vector/
+253,会议室II,堆、排序、贪心,medium,"给定一个会议时间安排的数组，每个会议时间都会包括开始和结束的时间 [[s1,e1],[s2,e2],...] (si < ei)，为避免会议冲突，同时要考虑充分利用会议室资源，请你计算至少需要多少间会议室，才能满足这些会议安排。",排序后遍历所有区间，将冲突的单独拎出来继续遍历，直到没有冲突为止。遍历的次数就是需要的会议室的数量。,√√,,https://leetcode-cn.com/problems/meeting-rooms-ii/
+260,只出现一次的数字III,位运算,medium,给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。,"注意这里有两个元素出现一次。
+二分法，先整体求异或，然后异或得到的结果，取最低位的1，然后通过这个1，将数组分成两部分。两部分再分别异或就可分别得到两个结果。
+原理在于这两个数的那个位必不相同，由此分出的两部分，必分别包含这两个数，而且其他数在这两个数组中都保证出现两次，这样分别异或的结果就必是这两个数。",√,,https://leetcode-cn.com/problems/single-number-iii/
+261,以图判树,BFS、DFS、并查集,medium,给定从 0 到 n-1 标号的 n 个结点，和一个无向边列表（每条边以结点对来表示），请编写一个函数用来判断这些边是否能够形成一个合法有效的树结构。,"1. 用BFS做出，时间还不够快
+2. 并查集，没看懂",√,,https://leetcode-cn.com/problems/graph-valid-tree/
+264,丑数II,堆、数学、动态规划,medium,"编写一个程序，找出第n个丑数。
+丑数就是只包含质因数2、3、5的正整数。",动态规划，维护三个指针，因为后边的丑数一定是前边丑数的2、3、或5倍，所以从前边丑数的基础上乘以2、3、5然后去最小的就可以。 ,×,,https://leetcode-cn.com/problems/ugly-number-ii/
+274,H指数,排序、哈希表,medium,"给定一位研究者论文被引用次数的数组（被引用次数是非负整数）。编写一个方法，计算出研究者的 h 指数.
+h 指数的定义: “h 代表“高引用次数”（high citations），一名科研人员的 h 指数是指他（她）的 （N 篇论文中）至多有 h 篇论文分别被引用了至少 h 次。（其余的 N - h 篇论文每篇被引用次数不多于 h 次。","题本身没有什么难度，关键在于能否理解题意。
+直接排序然后遍历扫描就行了，时间复杂度O(nlogn)，空间复杂度O(n)",√√,,https://leetcode-cn.com/problems/h-index/
+277,搜寻名人,数组,medium,给定一个 邻接表，在尽可能小的时间复杂度基础上，找到一个入度为n-1，出度为0的点。（除了自身不指向自身，其他点都指向它）,"1. 暴力法，对每个点进行一次行遍历和一次列遍历。时间复杂度O(n^2)
+2. 贪心。先假设0为名人候选人，遍历其它人i，如果候选人认识i，则修改候选人为i。最后验证候选人是否是名人。
+",√,,https://leetcode-cn.com/problems/find-the-celebrity/solution/277-sou-xun-ming-ren-by-guohaoding/
+279,完全平方数,动态规划,medium,"给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, ...）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。","这里我只想出了O(n^2)的DP算法，超时。
+实际上内层循环只需要考虑完全平方数就行了，所以应为O(nsqrt(n))",× ,,https://leetcode-cn.com/problems/perfect-squares/
+280,摆动排序,排序、数组,medium,给你一个无序的数组nums，将该数组原地重排后使得nums[0] <= nums[1] >= nums[2] … ,直接排序，然后两两交换,√√,,https://leetcode-cn.com/problems/wiggle-sort/
+281,锯齿迭代器,设计,medium,给出两个一维的向量，请你实现一个迭代器，交替返回它们中间的元素。,用一个变量记录当前该轮到哪个数组了，很简单,√√,,https://leetcode-cn.com/problems/zigzag-iterator/
+284,顶端迭代器,设计,medium,"给定一个迭代器类的接口，接口包含两个方法： next() 和 hasNext()。设计并实现一个支持 peek() 操作的顶端迭代器.
+其本质就是把原本应由 next() 方法返回的元素 peek() 出来。",白给题，不知道意义何在,√√,,https://leetcode-cn.com/problems/peeking-iterator/
+285,二叉搜索树的顺序后继,树,medium,给你一个二叉搜索树和其中的某一个结点，请你找出该结点在树中顺序后继的节点。,"牢记：二叉搜索树的中序遍历的结果就是其中的元素按大小顺序输出的结果。
+此题只要按中序遍历顺序，记录下上一个访问的节点，如果上一个访问的节点就是要找的，那当前节点即为要找的结果。",√√,,https://leetcode-cn.com/problems/inorder-successor-in-bst/
+286,墙与门,广度优先搜索,medium,给一个网格，上边有空房间，门，和障碍物。要求给每个空房间填上其到最近的门的距离。,多源BFS,√,,https://leetcode-cn.com/problems/walls-and-gates/
+287,寻找重复数,数组、双指针、二分查找,medium,"给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
+要求：原地算法，O(1)空间，时间小于O(nlogn)",这个题的二分查找是要对范围n做二分查找，而不是对原数组。对于1~n范围的数，遍历整个数组，看小于该数的数的数量和大于该数的数的数量是否是理想的，如果不满足条件，则Pivot就是要找的数,√√,,https://leetcode-cn.com/problems/find-the-duplicate-number/
+288,单词的唯一缩写,设计、哈希表,medium,假设你有一个字典和一个单词，请你判断该单词的缩写在这本字典中是否唯一。若单词的缩写在字典中没有任何 其他 单词与其缩写相同，则被称为单词的唯一缩写。,用哈希表存字典中的单词和缩写就行 。,√√,,https://leetcode-cn.com/problems/unique-word-abbreviation/
+289,生命游戏,数组,medium,看死细胞活细胞的题，状态转换。,原地标记算法，-1记为即将复活，0记为当前死下个状态还死，1记为当前活下个状态继续活，2记为当前活下个状态死。,√,,https://leetcode-cn.com/problems/game-of-life/solution/ren-sheng-ku-duan-de-yuan-di-biao-ji-suan-fa-java0/
+300,最长上升子序列,动态规划,medium,给定一个无序的整数数组，找到其中最长上升子序列的长度。,"1. 动态规划。公式：dp[i] = max(dp[j])+1，dp数组中存储从开始到当前数字i并且包括数字i能形成的LIS长度。
+2. 动态规划+二分查找。没看",×,,https://leetcode-cn.com/problems/longest-increasing-subsequence
+310,最小高度树,广度优先搜索、图,medium,对于一个具有树特征的无向图，我们可选择任何一个节点作为根。图因此可以成为树，在所有可能的树中，具有最小高度的树被称为最小高度树。给出这样的一个图，写出一个函数找到所有的最小高度树并返回他们的根节点。,"1. 类似剥洋葱的方法，先从度数为1的节点开始，一层一层向内找，直到最后剩下的一个或两个点，就是要找的根节点。(跟拓扑排序很类似，只不过这里是无向无环图，而拓扑排序必须是有向无环图)
+2. 还有一种方法是可以用两次dfs的交点，即为树的重心",√,,https://leetcode-cn.com/problems/minimum-height-trees/
+313,超级丑数,堆、数学,medium,查找第n个超级丑数。超级丑数是所有质因数都是给定质数列表中的数。,维护一个优先队列，其实跟丑数的原理差不多，每次将队列首部元素拿出来，然后乘所有列表中的数，再塞回队列中。直到找到第n个数为止。,√,,https://leetcode-cn.com/problems/super-ugly-number/
+319,灯泡开关,数学,medium,初始时有 n 个灯泡关闭。 第 1 轮，你打开所有的灯泡。 第 2 轮，每两个灯泡你关闭一次。 第 3 轮，每三个灯泡切换一次开关（如果关闭则开启，如果开启则关闭）。第 i 轮，每 i 个灯泡切换一次开关。 对于第 n 轮，你只切换最后一个灯泡的开关。 找出 n 轮后有多少个亮着的灯泡。,return sqrt(n),√,,https://leetcode-cn.com/problems/bulb-switcher/
+322,零钱兑换,动态规划,medium,给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。,"直接动态规划即可，从1直到amount，dp[i] = min(dp[coins[0]] + 1, dp[coins[1]] + 1 ….)",√√ ,,https://leetcode-cn.com/problems/coin-change/solution/ling-qian-dui-huan-by-leetcode/
+323,无向图中连通分量的个数,并查集,medium,,这个题是并查集的典型应用，直接套模板,√ ,,https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/
+328,奇偶链表,链表,medium,给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。,先找到尾部，将尾部链到偶数个节点位置。分奇偶情况讨论。,√√,,https://leetcode-cn.com/problems/odd-even-linked-list/
+332,重新安排行程,DFS、图,medium,"给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 出发.
+如果有多种答案，还要求返回字典序最小的。","这个题本质上是求一条欧拉路径（即从图中的一个点出发，经过所有的边，并且每个边都经过且只能经过一次）。
+方法在于正常做DFS遍历，但是只有当从这个点出发没有新的行程之后，才将这个点加入结果list当中，最后将结果list给reverse一下就是最终答案。
+这个题关键在于要注意一些特殊情况，有些情况用普通的顺序DFS是不行的，因为会走到死胡同里出不来，最后不能满足经过所有的边的题目要求。",× ,,https://leetcode-cn.com/problems/reconstruct-itinerary/
+334,递增的三元子序列,,medium,"给定一个未排序的数组，判断这个数组中是否存在长度为 3 的递增子序列。
+要求时间复杂度O(n), 空间O(1)","维护一个大小为3的子序列数组，使子序列尽量小。当前数字为{1, 4}，如果遇到2 ，则更新为{1, 2}； 当前数字为{2, 4}，如果遇到1，则更新为{1,4}，4的存在其实不要紧，会被替换掉的。",×,,https://leetcode-cn.com/problems/increasing-triplet-subsequence/
+341,扁平化嵌套列表迭代器,栈、设计,medium,给定一个嵌套的整型列表。设计一个迭代器，使其能够遍历这个整型列表中的所有整数。,这里用递归做会简单一些。。用栈稍微麻烦。说是迭代器，但是题解中的人都是在构造迭代器的时候就把所有的数都读取完存到数组里了。,√,,https://leetcode-cn.com/problems/flatten-nested-list-iterator/
+347,前k个高频元素,堆、哈希表,medium,给定一个非空的整数数组，返回其中出现频率前 k 高的元素。你的算法的时间复杂度必须优于 O(n log n),"先构建一个<数字, 出现次数>的哈希表。
+构建一个优先队列，将哈希表做排序，然后取队列的前k个数字即可",√√,,https://leetcode-cn.com/problems/top-k-frequent-elements/
+348,判定井字棋胜负,设计,medium,您有没有可能将每一步的 move() 操作优化到比 O(n2) 更快吗?,每当有人落子后，检查该子对应的横、竖、斜行进行检查,√√,,https://leetcode-cn.com/problems/design-tic-tac-toe/
+353,贪吃蛇,设计、队列,medium,要求设计一个贪吃蛇类，每当给出一个操作时，对蛇进行相关操作，计分，判断蛇的死活等。,其实就是用队列来存蛇的蛇头到蛇尾，然后注意判断是否撞墙和吃到自己，是否吃到豆等情况。,√√,,https://leetcode-cn.com/problems/design-snake-game/
+355,设计推特,堆、设计、哈希表,medium,要求设计一个简化版的推特，实现关注、取关，发推特。并且要求查看最近十条推文。,这个题的难点就在于查看最近十条推文的要求，因为要从自己关注的所有人（包括自己）的所有推特中找到前10条。其实也没什么好方法，只能为整个类设计一个全局变量记录推特的id，用一个哈希表存每个用户发的推特，一个哈希表存每个用户所关注的其他用户。,√√,,https://leetcode-cn.com/problems/design-twitter/
+357,计算各个位数不同的数字个数,数学、动态规划、回溯,medium,给定一个非负整数n，计算各位数字都不同的数字x的个数。,。。。没啥好办法。。。 直接硬编码返回的。第二轮有时间再好好看看正规解法吧。,√,,https://leetcode-cn.com/problems/count-numbers-with-unique-digits/
+372,超级次方,数学,medium,计算 a^b 对 1337 取模，a 是一个正整数，b 是一个非常大的正整数且会以数组形式给出。,"需要用到公式：(x*y)%k = (x%k)(y%k)%k，例如:
+2^12345 % k = ((2^1234)^10 % k) * (2 ^ 5 % k) % k",×,,https://leetcode-cn.com/problems/super-pow/
+378,有序矩阵中第k小的元素,堆、二分查找,medium,"给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，找到矩阵中第k小的元素。
+请注意，它是排序后的第k小元素，而不是第k个元素。","1. 直接暴力排序，但是相当于丢失了矩阵原有的顺序信息。O(nlogn)，空间O(n)
+2. 二分查找（没懂）
+3. n路归并，实现出来比暴力法还慢，其实也丢失了信息
+4. 最小堆（没懂）",√,,https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/submissions/
+380,常数时间插入、删除和获取随机元素,设计、数组、哈希表,medium,,查找时间为O(1)，明显只有哈希表才能实现,√√,,https://leetcode-cn.com/problems/insert-delete-getrandom-o1/
+384,打乱数组,,medium,"打乱一个没有重复元素的数组。
+垃圾题，直接拿python写了.","newList = copy.deepcopy(self.originalList)
+random.shuffle(newList)",√√,,https://leetcode-cn.com/problems/shuffle-an-array/
+395,至少有K个重复字符的最长子串,,medium,找到给定字符串（由小写字符组成）中的最长子串 T ， 要求 T 中的每一字符出现次数都不少于 k 。输出 T 的长度。,要用递归解法，分治，每次用不可能出现在结果中的字符将字符串分割为两部分或直接n部分，然后对这n部分做递归，即可找到最长结果,√,,https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/
+399,除法求值,并查集、图,medium,"给出方程式 A / B = k, 其中 A 和 B 均为代表字符串的变量， k 是一个浮点型数字。根据已知方程式求解问题，并返回计算结果。如果结果不存在，则返回 -1.0。","相当于给出一大堆除法的式子，然后再给出一堆式子让求值。其实关键在于把给定的每个式子当做图上的一条 加权边 ，每个字母当做边的两个端点，然后对每个新式子，用BFS从该点出发搜就行了。
+其实更好的办法是用并查集，例如要求B / C，这个集合中A是头，那么只要有A/B的值和A/C的值，B/C的值自然就得到了。在第二轮中可以尝试一下，会比BFS快很多很多",√,,https://leetcode-cn.com/problems/evaluate-division/
+424,替换后的最长重复字符,双指针、滑动窗口,medium,给你一个仅由大写英文字母组成的字符串，你可以将任意位置上的字符替换成另外的字符，总共可最多替换 k 次。在执行上述操作后，找到包含重复字母的最长子串的长度。,"其实关键是找到替换谁和保留谁的问题，要想子串长度最大，那么保留的一定是出现次数最多的，其他的是需要被替换的。
+双指针实现滑动窗口，快指针一直往前走，直到k次替换不够用了，慢指针跟上，直到k次替换够用为止。",√√,,https://leetcode-cn.com/problems/longest-repeating-character-replacement/
+426,将二叉搜索树转化为排序的双向链表,树、链表、分治法,medium,将一个BST原地转化为一个已排序的双向循环链表，将左右孩子节点作为链表节点的前驱和后继指针。,实际上很简单，正常先把迭代版本的中序遍历写出来，再记录下lastVisited，将当前节点的左指针指向lastVisited，lastVisited的右指针指向当前节点，以此类推，这样就行了。 当然DummyHead大法还是要用的，最后别忘了成环，返回DummyHead->next就行了。,√√,,https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+454,四数相加,哈希表、二分查找,medium,"给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。","1. 将AB中的两两之和存下，将CD中两两之和存下，就转换为了两数之和问题。O(n^2)
+2. 二分查找不知道怎么做",√,,https://leetcode-cn.com/problemset/top/?difficulty=%E4%B8%AD%E7%AD%89
+560,和为K的子数组,数组、哈希表,medium,给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。,"O(n)时间：
+使用哈希表存储前缀和，当sum-k存在于哈希表中时，说明存在一个符合要求的子数组。
+解释：
+当前数字为num[i], 累和为Si = num[0] + num[1] +…+num[i], 若存在一个num[j]使得sum-k = Sj, 则num[j] + num[j+1] +…+num[i]为符合要求的子数组",√,,https://leetcode-cn.com/problems/subarray-sum-equals-k/
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+4,寻找两个有序数组的中位数,二分查找,hard,Rt,"二分查找
+我们比较两个数组的第 k/2 个数字，如果 k 是奇数，向下取整。如果哪个小，就表明该数组的前 k/2 个数字都不是第 k 小数字，所以可以排除。
+",×,,
+23,合并K个排序链表,堆、链表、分治法,hard,链接：https://leetcode-cn.com/problems/4sum,"1. 尝试了直接的多路归并，O(Nlogk)
+2. 优先队列，也是O(Nlogk)",√,,https://leetcode-cn.com/problems/merge-k-sorted-lists/
+25,K个一组反转链表,链表,hard,给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。,"设置一个dummyHead, k个k个的读，截取出来，单独翻转，题目不难，但是需要十分小心",√√,,https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
+42,接雨水,栈、数组、双指针,hard,来源：力扣（LeetCode）,"栈的巧妙应用。想起来有点复杂。
+1. 按顺序遍历每颗柱子
+2. 当前柱子高度小于或等于栈顶柱子高度，把下标压入栈中（为了计算宽度用）
+3. 当前柱子高度大于栈顶柱子高度，将栈顶元素弹出，获取其高度，该高度即为洼地的高度，蓄水量=宽*高，这里的高是该洼地两边的最小高度，宽则是两边下标的差值。然后继续循环检查，直到栈空或栈顶柱子高度小于等于当前柱子高度（没有洼地了）",×,,https://leetcode-cn.com/problems/trapping-rain-water/
+45,跳跃游戏II,贪心算法,hard,每次最多跳x步，找到跳到终点的最少步数,其实不是动态规划，直接贪心就可以。,√√,,
+76,最小覆盖字串,哈希表、双指针、字符串、滑动窗口,hard,,,,,
+84,柱状图中的最大矩形,栈、分治法,hard,"给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+求在该柱状图中，能够勾勒出来的矩形的最大面积。
+","维护一个单调递增的栈，当当前元素比栈顶元素小时计算当前面积。栈中存下标。
+跟接雨水那道题非常相似",×,,https://leetcode-cn.com/problems/largest-rectangle-in-histogram/
+124,二叉树中的最大路径和,树、DFS,hard,著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。,"可以直接上递归，递归计算左右两子树能带来的最大收益。
+1. 包含当前节点的路径的最大和 = max(根值+左侧最大收益+右侧最大收益， 根值+左侧最大收益，根植+右侧最大收益).  
+2. 当前节点能为父节点带去的最大收益 = max(根值， 根值+左侧最大收益，根植+右侧最大收益)",√√,,https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
+128,最长连续序列,并查集,hard,,,,,
+149,直线上最多的点数,哈希表、数学,hard,,根据点斜式，循环遍历所有的点，对每个点，找到以该点出发，斜率相同的点的数量，存到hashMap里，最后找最大值即可。,√,,https://leetcode-cn.com/problems/max-points-on-a-line/
+269,火星词典,拓扑排序,hard,"现有一种使用字母的全新语言，这门语言的字母顺序与英语顺序不同。
+假设，您并不知道其中字母之间的先后顺序。但是，会收到词典中获得一个 不为空的 单词列表。因为是从词典中获得的，所以该单词列表内的单词已经 按这门新语言的字母顺序进行了排序。
+您需要根据这个输入的列表，还原出此语言中已知的字母顺序。","1. 首先根据所给词，构建出图，将单词纵向对比，根据对应位置的先后出现的顺序构造出有向无环图.
+2. 进行拓扑排序，如果拓扑排序后的结果的长度小于词典中单词的数量，则说明图中有环，返回个空，否则返回排序结果",√√,,https://leetcode-cn.com/problems/alien-dictionary/
+287,二叉树的序列化与反序列化,设计,hard,请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。,"1. 序列化：直接DFS先序递归，注意要把NULL也输出到字符串
+2. 反序列化：c++没有split有点坑，需要手动处理字符串转化成vector<string>，然后再用DFS一样的办法递归，递归期间持续把index往后挪，保证每个节点只被读取一次。",√,,https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
+295,数据流的中位数,堆,hard,"设计一个支持以下两种操作的数据结构：
+void addNum(int num) - 从数据流中添加一个整数到数据结构中。
+double findMedian() - 返回目前所有元素的中位数。",方法：两个堆，一个是用来存中位数左边一半元素的最大堆，一个是用来存中位数右边一半元素的最小堆。中位数即为最大堆顶和最小对顶里取,×,,https://leetcode-cn.com/problems/find-median-from-data-stream/
+301,删除无效的括号,DFS、BFS,hard,删除最小数量的无效括号，使得输入的字符串有效，返回所有可能的结果。,"步骤：
+1. 先算出有多少个错位的左括号和右括号（一次扫描即可算出）
+2. 带条件的回溯，算出所有可能的结果",√√,,https://leetcode-cn.com/problems/remove-invalid-parentheses/
+381,O(1)时间插入、删除和获取随机元素,设计,hard,Rt,"这里有一个很巧妙的办法是，用一个
+unordered_map<int, unordered_set<int>> 存每个元素对应的Index集合；再用一个vector存所有实际的数，以便随机查找用；
+关键是在删除的时候，这里用了尾部元素去替换要删的元素，因为存了index，可以O(1)时间找到，然后再删除冗余的尾部元素，依然O(1)",×,,https://leetcode-cn.com/problems/insert-delete-getrandom-o1-duplicates-allowed/
+458,可怜的小猪,数学,hard,,,,,
+862,和至少为K的最短子数组,栈,hard,返回 A 的最短的非空连续子数组的长度，该子数组的和至少为 K 。,"1. 存储一个前缀和数组。
+2. 使用一个双端队列（其实就是一个滑动窗口，可以在两端添加或删除数）.
+",×,,https://leetcode-cn.com/problems/shortest-subarray-with-sum-at-least-k/
