@@ -360,46 +360,110 @@ random.shuffle(newList)",√√,,https://leetcode-cn.com/problems/shuffle-an-arr
 使用哈希表存储前缀和，当sum-k存在于哈希表中时，说明存在一个符合要求的子数组。
 解释：
 当前数字为num[i], 累和为Si = num[0] + num[1] +…+num[i], 若存在一个num[j]使得sum-k = Sj, 则num[j] + num[j+1] +…+num[i]为符合要求的子数组",√,,https://leetcode-cn.com/problems/subarray-sum-equals-k/
+567,字符串的排列,双指针、滑动窗口,medium,"给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
+换句话说，第一个字符串的排列之一是第二个字符串的子串。",直接两个26字典存原字符串和当前窗口内的字符串，一直比较。也没什么其他办法。,√√,,https://leetcode-cn.com/problems/permutation-in-string/
+582,杀死进程,树、队列,medium,n个进程，之间存在父子关系，构成一个树状结构。给定一个要杀死的进程号，返回一个序列，表示因为杀死这个进程而导致的所有被杀掉的进程号。,用哈希表存每个节点的子节点，不真正去构建树。 当输入一个节点时，用迭代的BFS去向下遍历即可。,√√,,https://leetcode-cn.com/problems/kill-process/
+621,任务调度器,贪心算法、队列、数组,medium,给定一组CPU需要执行的任务列表。要求两个相同种类的任务之间必须有长度为n的冷却时间。,贪心思路，用一个优先队列存所有的任务，按其需要被执行的次数生成一个大顶堆，每次将整个堆弹出一遍各执行一次，再继续下一轮。,√√,,https://leetcode-cn.com/problems/task-scheduler/
+622,设计循环队列,设计、队列,medium,设计一个循环队列实现，基于FIFO并且队尾被连在队首行程一个循环。,简单的办法是使用链表实现，并且维护一个变量来记录队列是否为空。,√√,,https://leetcode-cn.com/problems/design-circular-queue/
+641,设计双端循环队列,设计、队列,medium,rt,将上边的链表改成双链表就行了。,√√,,https://leetcode-cn.com/problems/design-circular-deque/
+684,冗余连接,树、并查集、图,medium,输入一个图，这个图由含N个节点的树和一条附加边构成。返回一条可以删除的边，使结果成为一个有着N个节点的树。,构建并查集，其实跟Kruskal算法很像了，不断地将边插入到集合中，一旦有某条边的两个端点在同一个集合中，那么这条边必是冗余边。,√√,,https://leetcode-cn.com/problems/redundant-connection/
+721,账户合并,DFS、并查集,medium,给定一个accounts列表，每个元素是一个邮箱，其中第一个元素一个名字。现在要合并这些账户，如果一个账户同时出现在两个列表中，那么这两个列表中的邮箱必是属于一个人的。现在要求合并这些账户，并返回结果。,并查集，但是要构建字典来存每个邮箱对应的人，最后再恢复回来。,√ ,,https://leetcode-cn.com/problems/accounts-merge/
+729,我的日程安排表,数组,medium,"实现一个MyCalendar类存放日程安排，如果要添加的时间内没有其他安排，则可以存储这个新的安排。
+当两个日程安排有时间交叉时，就会产生重复预定。
+每次插入时，如果能重复插入返回true，否则返回false",用一个map存所有时间段的开始时间和结束时间(自动按开始时间排序)。 每次新日程来时，遍历即可。,√√ ,,https://leetcode-cn.com/problems/my-calendar-i/
+737,句子相似性II,DFS、并查集,medium,"给定两个句子，words1,words2，判断两个句子是否是相似的。
+会给定一组单词对，其中的单词是相似的。而且相似关系有对称性和传递性。一个单词与自身总是相似的。
+句子只有单词个数相同时才相似。
+判断两个句子的相似性。",构建并查集，将相似的词放到一个集合中，然后用并查集判断两个句子的相似性即可。,√√,,https://leetcode-cn.com/problems/sentence-similarity-ii/
+743,网络延迟时间,堆、DFS、BFS、图,medium,"有N个网络节点，标记为1~N。给定一个列表，表示信号经过有向边的传递时间，例如times[i] = (u, v, w)，w是时间
+现在想节点K发送了一个信号，需要多久才能使所有节点都收到信号。如果不能返回-1.",标准的Dikstra 算法。算出从源到所有汇的最小加权路径，然后找所有最小权重中的最大值即可。,√,,https://leetcode-cn.com/problems/network-delay-time/
+754,到达终点数字,数学,medium,在一根无限长的数轴上，你站在0的位置，终点在target的位置。每次可以选择向左或向右移动。第n次移动可以走n步。返回到达终点需要的最小移动次数。,分奇偶讨论。,×,,https://leetcode-cn.com/problems/reach-a-number/
+,,,,,,,,
 ,,,,,,,,
 ,,,,,,,,
 ,,,,,,,,
 ,,,,,,,,
 4,寻找两个有序数组的中位数,二分查找,hard,Rt,"二分查找
 我们比较两个数组的第 k/2 个数字，如果 k 是奇数，向下取整。如果哪个小，就表明该数组的前 k/2 个数字都不是第 k 小数字，所以可以排除。
-",×,,
-23,合并K个排序链表,堆、链表、分治法,hard,链接：https://leetcode-cn.com/problems/4sum,"1. 尝试了直接的多路归并，O(Nlogk)
+",×,,https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+10,正则表达式匹配,字符串、动态规划、回溯,hard,"要求支持 '.' 和 '*'，其中 '.' 可以匹配任意单个字符。
+'*' 匹配零个或多个前面的那个元素","递归匹配，关键是 '. '字符，当遇到'.' 时，可以选择原文不动，跳过通配符；也可以选择匹配当前字符，不跳过通配符。 
+递归同时用一个DP矩阵做记忆化。",√ ,,https://leetcode-cn.com/problems/regular-expression-matching/
+23,合并K个排序链表,堆、链表、分治法,hard,合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。,"1. 尝试了直接的多路归并，O(Nlogk)
 2. 优先队列，也是O(Nlogk)",√,,https://leetcode-cn.com/problems/merge-k-sorted-lists/
 25,K个一组反转链表,链表,hard,给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。,"设置一个dummyHead, k个k个的读，截取出来，单独翻转，题目不难，但是需要十分小心",√√,,https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
-42,接雨水,栈、数组、双指针,hard,来源：力扣（LeetCode）,"栈的巧妙应用。想起来有点复杂。
+42,接雨水,栈、数组、双指针,hard,给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。,"栈的巧妙应用。想起来有点复杂。
 1. 按顺序遍历每颗柱子
 2. 当前柱子高度小于或等于栈顶柱子高度，把下标压入栈中（为了计算宽度用）
 3. 当前柱子高度大于栈顶柱子高度，将栈顶元素弹出，获取其高度，该高度即为洼地的高度，蓄水量=宽*高，这里的高是该洼地两边的最小高度，宽则是两边下标的差值。然后继续循环检查，直到栈空或栈顶柱子高度小于等于当前柱子高度（没有洼地了）",×,,https://leetcode-cn.com/problems/trapping-rain-water/
-45,跳跃游戏II,贪心算法,hard,每次最多跳x步，找到跳到终点的最少步数,其实不是动态规划，直接贪心就可以。,√√,,
+44,通配符匹配,贪心、字符串、动态规划、回溯,hard,"给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 '?' 和 '*' 的通配符匹配。
+'?' 可以匹配任何单个字符， '*' 可以匹配任意字符串。",仿照10.正则表达式匹配，递归匹配即可。用一个dp矩阵做记忆化。,√,,https://leetcode-cn.com/problems/wildcard-matching/
+45,跳跃游戏II,贪心算法,hard,每次最多跳x步，找到跳到终点的最少步数,其实不是动态规划，直接贪心就可以。,√√,,https://leetcode-cn.com/problems/jump-game-ii/
+57,插入区间,排序、数组,hard,"给出一个无重叠的，按区间起始端点排序的区间列表。
+在列表中插入一个新区间，要确保列表中的区间仍然有序且不重叠。",将新区间插入，对原数组按区间起点排序，然后逐个放入ans中，放入过程中逐个判断是否有重叠，有重叠则做更改即可。其实是一种贪心思想。,√√,,https://leetcode-cn.com/problems/insert-interval/
+72,编辑距离,字符串、动态规划,hard,给定两个单词，计算edit distance,"动态规划即可，状态转移方程为：
+d[i,j]=min(d[i-1,j]+1 、d[i,j-1]+1、d[i-1,j-1]+temp)  ，其中temp = (word1[i-1] != word2[j-1])",× ,,https://leetcode-cn.com/problems/edit-distance/
 76,最小覆盖字串,哈希表、双指针、字符串、滑动窗口,hard,,,,,
 84,柱状图中的最大矩形,栈、分治法,hard,"给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
 求在该柱状图中，能够勾勒出来的矩形的最大面积。
 ","维护一个单调递增的栈，当当前元素比栈顶元素小时计算当前面积。栈中存下标。
 跟接雨水那道题非常相似",×,,https://leetcode-cn.com/problems/largest-rectangle-in-histogram/
-124,二叉树中的最大路径和,树、DFS,hard,著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。,"可以直接上递归，递归计算左右两子树能带来的最大收益。
+85,最大矩形,栈、数组、哈希表、DP,hard,给定一个仅包含 0 和 1 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。,先将矩阵压缩成一维，按行按列均可，然后就可转化为问题84，求柱状图中的最大矩形,√√,,https://leetcode-cn.com/problems/maximal-rectangle/
+115,不同的子序列,字符串、动态规划,hard,"给定一个字符串 S 和一个字符串 T，计算在 S 的子序列中 T 出现的个数。 例如:
+S = ""rabbbit"", T = ""rabbit""，则有三种方案。",动态规划，构建矩阵，若当前对应字符相等，则dp[i][j] = dp[i-1][j-1] + dp[i][j-1]; 否则dp[i][j] = dp[i][j-1];,√√,,https://leetcode-cn.com/problems/distinct-subsequences/
+124,二叉树中的最大路径和,树、DFS,hard,rt 路径为一个点到任意一点，可以不经过根节点,"可以直接上递归，递归计算左右两子树能带来的最大收益。
 1. 包含当前节点的路径的最大和 = max(根值+左侧最大收益+右侧最大收益， 根值+左侧最大收益，根植+右侧最大收益).  
-2. 当前节点能为父节点带去的最大收益 = max(根值， 根值+左侧最大收益，根植+右侧最大收益)",√√,,https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
-128,最长连续序列,并查集,hard,,,,,
-149,直线上最多的点数,哈希表、数学,hard,,根据点斜式，循环遍历所有的点，对每个点，找到以该点出发，斜率相同的点的数量，存到hashMap里，最后找最大值即可。,√,,https://leetcode-cn.com/problems/max-points-on-a-line/
+2. 当前节点能为父节点带去的最大收益 = max(根值， 根值+左侧最大收益，根植+右侧最大收益 )",√√,,https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
+128,最长连续序列,并查集,hard,"给定一个未排序的整数数组，找出最长连续序列的长度。
+要求时间复杂度为O(n)",用一个字典存数字和该数字对应的左右边界的长度，类似并查集的思想。,×,,https://leetcode-cn.com/problems/longest-consecutive-sequence/
+135,分发糖果,贪心,hard,"给孩子们发糖果。要求每个孩子至少分配到一个糖果，相邻孩子中评分高的孩子必须获得更多糖果。
+问至少要准备多少糖","先倒序扫描一次，每个人跟自己右边的比，糖少了给糖；
+再顺序扫描一次，每个人跟自己左边的比，糖少了给糖；",√√,,https://leetcode-cn.com/problems/candy/
+140,单词拆分II,动态规划、回溯,hard,给定一个非空字符串 s 和一个包含非空单词列表的字典 wordDict，在字符串中增加空格来构建一个句子，使得句子中所有的单词都在词典中。返回所有这些可能的句子。,带记忆化的回溯。,√√,,https://leetcode-cn.com/problems/word-break-ii/
+145,二叉树的后序遍历,栈、树,hard,rt，要求使用迭代,"套模板。
+要记录上一个访问的节点，只有当上一个访问的节点是当前节点的右子节点或右子节点为空时，才访问当前节点。否则去访问右子节点。",√,,https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
+149,直线上最多的点数,哈希表、数学,hard,rt,根据点斜式，循环遍历所有的点，对每个点，找到以该点出发，斜率相同的点的数量，存到hashMap里，最后找最大值即可。,√,,https://leetcode-cn.com/problems/max-points-on-a-line/
+233,数字1的个数,数学,hard,给定一个整数，计算所有小于等于n的非负整数中1出现的个数。,"min(max(n mod (i*10)) - I + 1, 0), i),表示第i位中1出现的次数",× ,,https://leetcode-cn.com/problems/number-of-digit-one/
+239,滑动窗口最大值,堆、滑动窗口,hard,"给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+ 返回每一步滑动窗口中的最大值
+要求线性复杂度。","使用双端队列或双指针，每一步记录当前最大值，只有弹出去的是最大值时，才重新扫描一遍算出最大值。实际上只是近似O(n), 最差情况下依然是O(kn)",√,,https://leetcode-cn.com/problems/sliding-window-maximum/
+248,中心对称数III,递归、数学,hard,"中心对称数是旋转180度看起来仍相同的数字。
+计算在[low, high]之间的中心对称数。",方法有点傻，用之前中心对称数II的方法，算出固定位的中心对称数。 有点像优化的暴力法。,√√,,https://leetcode-cn.com/problems/strobogrammatic-number-iii/
 269,火星词典,拓扑排序,hard,"现有一种使用字母的全新语言，这门语言的字母顺序与英语顺序不同。
 假设，您并不知道其中字母之间的先后顺序。但是，会收到词典中获得一个 不为空的 单词列表。因为是从词典中获得的，所以该单词列表内的单词已经 按这门新语言的字母顺序进行了排序。
 您需要根据这个输入的列表，还原出此语言中已知的字母顺序。","1. 首先根据所给词，构建出图，将单词纵向对比，根据对应位置的先后出现的顺序构造出有向无环图.
 2. 进行拓扑排序，如果拓扑排序后的结果的长度小于词典中单词的数量，则说明图中有环，返回个空，否则返回排序结果",√√,,https://leetcode-cn.com/problems/alien-dictionary/
-287,二叉树的序列化与反序列化,设计,hard,请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。,"1. 序列化：直接DFS先序递归，注意要把NULL也输出到字符串
-2. 反序列化：c++没有split有点坑，需要手动处理字符串转化成vector<string>，然后再用DFS一样的办法递归，递归期间持续把index往后挪，保证每个节点只被读取一次。",√,,https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
+272,最接近的二叉搜索树值,栈、树,hard,给定一个不为空的二叉搜索树和一个目标值target，请在二叉搜索树中找到最接近target的k个值。,中序遍历，存结果，然后取最接近的k个即可（按差的绝对值排序）。,√√,,https://leetcode-cn.com/progress/
 295,数据流的中位数,堆,hard,"设计一个支持以下两种操作的数据结构：
 void addNum(int num) - 从数据流中添加一个整数到数据结构中。
 double findMedian() - 返回目前所有元素的中位数。",方法：两个堆，一个是用来存中位数左边一半元素的最大堆，一个是用来存中位数右边一半元素的最小堆。中位数即为最大堆顶和最小对顶里取,×,,https://leetcode-cn.com/problems/find-median-from-data-stream/
+297,二叉树的序列化与反序列化,设计,hard,请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。,"1. 序列化：直接DFS先序递归，注意要把NULL也输出到字符串
+2. 反序列化：c++没有split有点坑，需要手动处理字符串转化成vector<string>，然后再用DFS一样的办法递归，递归期间持续把index往后挪，保证每个节点只被读取一次。",√,,https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
 301,删除无效的括号,DFS、BFS,hard,删除最小数量的无效括号，使得输入的字符串有效，返回所有可能的结果。,"步骤：
 1. 先算出有多少个错位的左括号和右括号（一次扫描即可算出）
 2. 带条件的回溯，算出所有可能的结果",√√,,https://leetcode-cn.com/problems/remove-invalid-parentheses/
+305,岛屿数量II,并查集,hard,一个2d地图，每个格子起始都是水，然后逐渐加入陆地，请算出每次加入陆地后岛屿的数量。,"这个题还是稍微有些复杂的，每次加入后都重新搜一遍必会超时。
+所以可以当新陆地来时，先默认会增加一块陆地，然后四周搜一下，如果跟旁边的已经是一个爹了，跳过，否则跟旁边的合并，岛屿数量减一。因为会存在当插入一个岛屿时将周围几片岛屿连在一起的情况。",√,,https://leetcode-cn.com/problems/number-of-islands-ii/
+312,戳气球,分治法、动态规划,hard,"有n个气球，编号为0~n-1, 每个气球上都有一个数字，存在数组nums中。
+每次戳气球时可以获得相邻气球nums[left] * nums[i] * nums[right]个硬币。
+求能获得硬币的最大值。","回溯会超时，包括带记忆化的回溯，因为每种情况都要考虑一次。
+所以考虑动态规划，存一个dp矩阵，记录如果当前气球是从i到j，那么戳破这些气球最多可获得多少硬币。然后一层一层迭代。",× ,,https://leetcode-cn.com/problems/burst-balloons/
+315,计算右侧小于当前元素的个数,排序、树状数组、线段树、二分查找、分治,hard,rt,"1. 暴力法居然可以过。
+2. 优化暴力法，将之前遍历过的排序，或者用multiset之类的
+3. 二叉搜索树，每个节点都记录一个变量val和一个count记录小于该节点的个数。
+4. 利用归并排序和树状数组。",√ ,,https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+316,去除重复字母,栈、贪心,hard,给定一个仅包含小写字母的字符串，去除重复字母。并且需要保证返回的结果的字典序最小。,使用栈，栈中先走一个a做哨兵，然后逐个压入栈中，如果栈顶元素大于当前元素，并且后边栈顶元素还会出现，则说明栈顶元素可以被删掉，这样直到能找到合适位置为止。,×,,https://leetcode-cn.com/problems/remove-duplicate-letters/
+329,矩阵中的最长递增路径,DFS、拓扑排序、记忆化,hard,给定一个整数矩阵，找出最长递增路径的长度。,标准的记忆化，套模板就行。,√,,https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
+340,至多包含K个不同字符的最长字串,哈希表、字符串、滑动窗口,hard,给定一个字符串，找出至多包含k个不同字符的最长字串T,"滑动窗口，用哈希表记录窗口中的元素，快指针向前走，每当窗口中不同元素大于k时，慢指针持续跟进，直到窗口中不同元素不大于k。
+虽然是双重循环，但时间复杂度仍是O(n)，因为每个元素最多被放入字典一次，被从字典拿出一次。",√√,,https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters/
+358,K距离间隔重排字符串,堆、贪心、哈希表,hard,"给你一个非空的字符串 s 和一个整数 k，你要将这个字符串中的字母进行重新排列，使得重排后的字符串中相同字母的位置间隔距离至少为 k。
+输入: s = ""aabbcc"", k = 3
+输出: ""abcabc"" ",用优先队列，优先排出现频率最高的，该字母没用完的话再放回堆里。,√,,https://leetcode-cn.com/problems/rearrange-string-k-distance-apart/
+363,矩形区域不超过K的最大数值和,队列、二分查找、DP,hard,给定一个矩阵一个整数k，找到这个矩阵内部不大于k的最大矩形和。,暴力法，四重循环直接算。,√√,,https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/
 381,O(1)时间插入、删除和获取随机元素,设计,hard,Rt,"这里有一个很巧妙的办法是，用一个
 unordered_map<int, unordered_set<int>> 存每个元素对应的Index集合；再用一个vector存所有实际的数，以便随机查找用；
 关键是在删除的时候，这里用了尾部元素去替换要删的元素，因为存了index，可以O(1)时间找到，然后再删除冗余的尾部元素，依然O(1)",×,,https://leetcode-cn.com/problems/insert-delete-getrandom-o1-duplicates-allowed/
+411,最短特异单词缩写,位运算、回溯,hard,给定一个目标字符串和一个字符串字典，为目标字符串找一个最短长度的缩写，同时这个缩写不能跟字典中的重复。,,,,
 458,可怜的小猪,数学,hard,,,,,
 862,和至少为K的最短子数组,栈,hard,返回 A 的最短的非空连续子数组的长度，该子数组的和至少为 K 。,"1. 存储一个前缀和数组。
 2. 使用一个双端队列（其实就是一个滑动窗口，可以在两端添加或删除数）.
